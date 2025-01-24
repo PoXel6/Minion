@@ -3,3 +3,7 @@ version: '0.0-SNAPSHOT'
 main: me.poxel6.mininion.Mininion
 api-version: '1.21'
 authors: [ PoXel6 ]
+commands:
+  minion:
+    usage: /minion
+    description: spawns a small Armor Stand at player's Location.
