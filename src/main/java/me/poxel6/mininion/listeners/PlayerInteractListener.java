@@ -16,7 +16,7 @@ public class PlayerInteractListener implements Listener {
       } else {
         new MinionMainMenu(player);
       }
+      event.setCancelled(true);
     }
-    event.setCancelled(true);
   }
 }
