@@ -18,19 +18,19 @@ public abstract class Minion {
   private final ArmorStand minion;
 
   protected Minion(Player owner) {
-    minion = createMinion(getPlayerLocation(owner));
-    setCustomName(PLUGIN.getConfig().getString("GENERAL.DISPLAY_NAME", "Minion"), true);
-    setSmall(true);
-    setGravity(false);
-    setInvulnerable(true);
-    setArms(true);
-    setEquipment(true);
-
+    minion = getArmorStand(getPlayerLocation(owner));
     minion.setMetadata(MINION_METADATA_KEY, new FixedMetadataValue(Mininion.getInstance(), true));
+    minion.setCustomName(PLUGIN.getConfig().getString("GENERAL.DISPLAY_NAME", "Minion"));
+    minion.setCustomNameVisible(true);
+    minion.setSmall(true);
+    minion.setGravity(false);
+    minion.setInvulnerable(true);
+    minion.setArms(true);
+    setEquipment();
   }
 
   @NotNull
-  private static ArmorStand createMinion(@NotNull Location location) {
+  private ArmorStand getArmorStand(@NotNull Location location) {
     if (location.getWorld() == null) {
       throw new IllegalArgumentException("World cannot be Null!");
     }
@@ -64,34 +64,15 @@ public abstract class Minion {
     return new ItemStack(boots);
   }
 
-  private void setArms(boolean b) {
-    minion.setArms(b);
-  }
-
-  private void setInvulnerable(boolean b) {
-    minion.setInvulnerable(b);
-  }
-
-  private void setGravity(boolean b) {
-    minion.setGravity(b);
-  }
-
-  private void setSmall(boolean b) {
-    minion.setSmall(b);
-  }
-
-  private void setEquipment(boolean b) {
+  private void setEquipment() {
     var equipment = minion.getEquipment();
     if (equipment == null) {
       return;
     }
-    if (b) {
-      //      equipment.setHelmet(setHeadSkin(getHeadConfig("APPEARANCE.HEAD")));
-      equipment.setHelmet(setHeadSkin(getHeadConfig("APPEARANCE.HEAD")));
-      equipment.setChestplate(getChestplateConfig("APPEARANCE.CHESTPLATE"));
-      equipment.setLeggings(getLeggingsConfig("APPEARANCE.LEGGINGS"));
-      equipment.setBoots(getBootsConfig("APPEARANCE.BOOTS"));
-    }
+    equipment.setHelmet(setHeadSkin(getHeadConfig("APPEARANCE.HEAD")));
+    equipment.setChestplate(getChestplateConfig("APPEARANCE.CHESTPLATE"));
+    equipment.setLeggings(getLeggingsConfig("APPEARANCE.LEGGINGS"));
+    equipment.setBoots(getBootsConfig("APPEARANCE.BOOTS"));
   }
 
   private Location getPlayerLocation(@NotNull Player player) {
@@ -109,10 +90,5 @@ public abstract class Minion {
     skullMeta.setOwningPlayer(player);
     itemStack.setItemMeta(skullMeta);
     return itemStack;
-  }
-
-  private void setCustomName(String customName, Boolean visibility) {
-    minion.setCustomName(customName);
-    minion.setCustomNameVisible(visibility);
   }
 }
