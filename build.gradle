@@ -4,10 +4,10 @@ plugins {
 }
 
 shadowJar {
-    relocate("dev.triumphteam.gui", "me.poxel6.mininion.gui")
+    relocate("dev.triumphteam.gui", "me.poxel.minion.gui")
 
-    relocate("co.aikar.commands", "me.poxel.punishplugin.acf")
-    relocate("co.aikar.locales", "me.poxel.punishplugin.locales")
+    relocate("co.aikar.commands", "me.poxel.minion.acf")
+    relocate("co.aikar.locales", "me.poxel.minion.locales")
 
     destinationDirectory = file("/mnt/c/Users/pox/AppData/Roaming/Fork/servers/Server/plugins")
 }

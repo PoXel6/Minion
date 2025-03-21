@@ -1,4 +1,4 @@
-package me.poxel6.mininion.menu.utils;
+package me.poxel.minion.menu.utils;
 
 import org.bukkit.entity.Player;
 

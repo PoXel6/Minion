@@ -1,7 +1,7 @@
-package me.poxel6.mininion.menu.inventories;
+package me.poxel.minion.menu.inventories;
 
-import me.poxel6.mininion.menu.Menu;
-import me.poxel6.mininion.menu.utils.PlayerMenu;
+import me.poxel.minion.menu.Menu;
+import me.poxel.minion.menu.utils.PlayerMenu;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 

@@ -1,4 +1,4 @@
-package me.poxel6.mininion.listener;
+package me.poxel.minion.listener;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

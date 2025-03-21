@@ -1,11 +1,11 @@
-package me.poxel6.mininion.command;
+package me.poxel.minion.command;
 
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.Default;
 import co.aikar.commands.annotation.Subcommand;
-import me.poxel6.mininion.Mininion;
-import me.poxel6.mininion.config.ConfigManager;
-import me.poxel6.mininion.minion.StoneMinion;
+import me.poxel.minion.Main;
+import me.poxel.minion.config.ConfigManager;
+import me.poxel.minion.minion.StoneMinion;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -28,6 +28,6 @@ public class MinionCommand extends BaseCommand {
 
 	@Subcommand("reload")
 	public void onReload(CommandSender sender) {
-		ConfigManager.reload(Mininion.getInstance());
+		ConfigManager.reload(Main.getInstance());
 	}
 }

@@ -1,6 +1,6 @@
-name: mininion
+name: minion
 version: '0.0-SNAPSHOT'
-main: me.poxel6.mininion.Mininion
+main: me.poxel.minion.Main
 api-version: '1.21'
 authors: [ PoXel6 ]
 commands:

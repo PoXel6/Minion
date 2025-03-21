@@ -1,4 +1,4 @@
-package me.poxel6.mininion.minion.type;
+package me.poxel.minion.minion;
 
 import java.util.List;
 

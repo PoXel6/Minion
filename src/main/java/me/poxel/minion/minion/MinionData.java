@@ -1,6 +1,6 @@
-package me.poxel6.mininion.minion;
+package me.poxel.minion.minion;
 
-import me.poxel6.mininion.Mininion;
+import me.poxel.minion.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -17,12 +17,12 @@ public abstract class MinionData {
 
 
 	private static final String MINION_METADATA_KEY = "isMinion";
-	private static final Mininion PLUGIN = Mininion.getInstance();
+	private static final Main PLUGIN = Main.getInstance();
 	private final ArmorStand minion;
 
 	protected MinionData(Player owner) {
 		minion = getArmorStand(getPlayerLocation(owner));
-		minion.setMetadata(MINION_METADATA_KEY, new FixedMetadataValue(Mininion.getInstance(), true));
+		minion.setMetadata(MINION_METADATA_KEY, new FixedMetadataValue(Main.getInstance(), true));
 		minion.setCustomName(PLUGIN.getConfig().getString("GENERAL.DISPLAY_NAME", "Minion"));
 		minion.setCustomNameVisible(true);
 		minion.setSmall(true);
@@ -30,6 +30,16 @@ public abstract class MinionData {
 		minion.setInvulnerable(true);
 		minion.setArms(true);
 		setEquipment();
+	}
+
+	boolean needFuel() {
+		return false;
+	}
+
+	void spawnMinion() {
+	}
+
+	void pickUp() {
 	}
 
 	@NotNull
