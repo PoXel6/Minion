@@ -1,6 +1,7 @@
 package me.poxel.mininion.minion;
 
 import me.poxel.mininion.Mininion;
+import me.poxel.mininion.minion.trait.Persistable;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Player;

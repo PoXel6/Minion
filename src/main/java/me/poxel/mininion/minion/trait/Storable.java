@@ -1,4 +1,4 @@
-package me.poxel.mininion.minion;
+package me.poxel.mininion.minion.trait;
 
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
