@@ -1,10 +1,10 @@
-package me.poxel.minion.minion;
+package me.poxel.mininion.minion;
 
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 
-public class StoneMinion extends MinionData {
+public class StoneMinion extends Minion {
 
 
 	public StoneMinion(@NotNull Player owner) {

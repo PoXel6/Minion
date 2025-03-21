@@ -1,18 +1,18 @@
-package me.poxel.minion;
+package me.poxel.mininion;
 
 import co.aikar.commands.PaperCommandManager;
 import lombok.Getter;
-import me.poxel.minion.command.MinionCommand;
-import me.poxel.minion.config.Configuration;
-import me.poxel.minion.listener.PlayerInteractListener;
+import me.poxel.mininion.command.MinionCommand;
+import me.poxel.mininion.config.Configuration;
+import me.poxel.mininion.listener.PlayerInteractListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
-public final class Main extends JavaPlugin {
+public final class Mininion extends JavaPlugin {
 
 
 	@Getter
-	private static Main instance;
+	private static Mininion instance;
 	private PaperCommandManager manager;
 
 	@Override

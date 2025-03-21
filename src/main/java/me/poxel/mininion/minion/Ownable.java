@@ -1,4 +1,4 @@
-package me.poxel.minion.minion;
+package me.poxel.mininion.minion;
 
 import org.bukkit.entity.Player;
 

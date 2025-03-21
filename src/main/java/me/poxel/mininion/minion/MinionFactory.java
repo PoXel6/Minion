@@ -1,5 +1,6 @@
 package me.poxel.mininion.minion;
 
+import lombok.Getter;
 import me.poxel.mininion.Mininion;
 import me.poxel.mininion.config.Configuration;
 import me.poxel.mininion.util.TextUtil;
@@ -13,14 +14,15 @@ public abstract class MinionFactory {
 
 	private static final Mininion plugin = Mininion.getInstance();
 	private static Player owner;
-	private static ArmorStand minion;
+	@Getter private static ArmorStand minion;
 
-	public static void create() {
+	public static Minion create() {
 		setAttribute(true);
 		setName(true);
-		final var location = owner.getLocation();
 
+		final var location = owner.getLocation();
 		minion = (ArmorStand) location.getWorld().spawnEntity(location, EntityType.ARMOR_STAND);
+		return new Minion(owner);
 	}
 
 	private static void setAttribute(final boolean toggle) {
