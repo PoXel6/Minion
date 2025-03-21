@@ -1,4 +1,4 @@
-package me.poxel.minion.config;
+package me.poxel.mininion.config;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -9,16 +9,15 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.util.List;
 
 
-@Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public abstract class Configuration {
 
 
-	private static Material chestplate;
-	private static Material leggings;
-	private static Material boots;
-	private static List<String> tabCompletions;
-	private static String name;
+	@Getter private static Material chestplate;
+	@Getter private static Material leggings;
+	@Getter private static Material boots;
+	@Getter private static List<String> tabCompletions;
+	@Getter private static String name;
 
 	public static void loadConfig(FileConfiguration config) {
 		name = config.getString("GENERAL.DISPLAY_NAME", "Minion");
