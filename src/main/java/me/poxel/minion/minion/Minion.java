@@ -13,14 +13,14 @@ import org.bukkit.metadata.FixedMetadataValue;
 import org.jetbrains.annotations.NotNull;
 
 
-public abstract class MinionData {
+public abstract class Minion {
 
 
 	private static final String MINION_METADATA_KEY = "isMinion";
 	private static final Main PLUGIN = Main.getInstance();
 	private final ArmorStand minion;
 
-	protected MinionData(Player owner) {
+	protected Minion(Player owner) {
 		minion = getArmorStand(getPlayerLocation(owner));
 		minion.setMetadata(MINION_METADATA_KEY, new FixedMetadataValue(Main.getInstance(), true));
 		minion.setCustomName(PLUGIN.getConfig().getString("GENERAL.DISPLAY_NAME", "Minion"));
