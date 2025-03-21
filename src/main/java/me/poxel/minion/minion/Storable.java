@@ -4,7 +4,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 
 
-public interface MinionStorage {
+public interface Storable {
 
 
 	Inventory getInventory();
