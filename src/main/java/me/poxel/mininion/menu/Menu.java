@@ -1,38 +1,38 @@
 package me.poxel.mininion.menu;
 
-import me.poxel.mininion.menu.utils.PlayerMenu;
-import org.bukkit.Bukkit;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.InventoryHolder;
+import dev.triumphteam.gui.guis.Gui;
+import lombok.Getter;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
+import net.kyori.adventure.text.format.NamedTextColor;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryInteractEvent;
 
 
-public abstract class Menu implements InventoryHolder {
+@SuppressWarnings({"unused", "FieldCanBeLocal"})
+public abstract class Menu {
 
 
-	protected Inventory inventory;
-	protected PlayerMenu playerMenu;
+	private final int DEFAULT_MENU_SIZE = 3;
+	private final TextComponent DEFAULT_MENU_TITLE = Component.text("Menu").color(NamedTextColor.GOLD);
+	@Getter private Gui inventory;
 
-	public Menu(PlayerMenu playerMenu) {
-		this.playerMenu = playerMenu;
+	public Component getTitle() {
+		return DEFAULT_MENU_TITLE;
 	}
 
-	public abstract String getMenuName();
-
-	public abstract int getSlots();
-
-	public abstract void handleMenu(InventoryClickEvent event);
-
-	public abstract void setMenuItem();
-
-	public void open() {
-		inventory = Bukkit.createInventory(this, getSlots(), getMenuName());
-		this.setMenuItem();
-		playerMenu.getOwner().openInventory(inventory);
+	public int getRow() {
+		return DEFAULT_MENU_SIZE;
 	}
 
-	@Override
-	public Inventory getInventory() {
-		return inventory;
+	public void open(Player player) {
+		inventory = Gui.gui().rows(getRow()).title(getTitle()).create();
+		setMenuItems();
+		inventory.open(player);
 	}
+
+	public abstract void setMenuItems();
+
+	public abstract <T extends InventoryInteractEvent> void setAction(T event);
+
 }
