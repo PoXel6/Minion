@@ -17,7 +17,7 @@ public abstract class MinionFactory {
 	@Getter private static ArmorStand minion;
 
 	public static Minion create() {
-		setAttribute(true);
+		setAttributes(true);
 		setName(true);
 
 		final var location = owner.getLocation();
