@@ -1,5 +1,7 @@
 GENERAL:
   DISPLAY_NAME: "Mininion"
+MENU:
+  minion-menu-name: "&7Minion &4Menu"
 APPEARANCE:
   HEAD: "PoXel6"
   CHESTPLATE: DIAMOND_CHESTPLATE

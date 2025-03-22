@@ -18,6 +18,7 @@ public abstract class Configuration {
 	@Getter private static Material boots;
 	@Getter private static List<String> tabCompletions;
 	@Getter private static String name;
+	@Getter private static String minionMenuName;
 
 	public static void loadConfig(FileConfiguration config) {
 		name = config.getString("GENERAL.DISPLAY_NAME", "Minion");
@@ -25,5 +26,6 @@ public abstract class Configuration {
 		leggings = Material.getMaterial(config.getString("APPEARANCE.LEGGINGS", "LEATHER_LEGGINGS"));
 		boots = Material.getMaterial(config.getString("APPEARANCE.BOOTS", "LEATHER_BOOTS"));
 		tabCompletions = config.getStringList("TAB_COMPLETIONS");
+		minionMenuName = config.getString("MENU.minion-menu");
 	}
 }
