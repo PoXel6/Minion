@@ -1,7 +1,7 @@
 package me.poxel.mininion.minion;
 
 import lombok.Getter;
-import me.poxel.mininion.Mininion;
+import me.poxel.mininion.command.MinionCommand;
 import me.poxel.mininion.config.Configuration;
 import me.poxel.mininion.util.TextUtil;
 import org.bukkit.entity.ArmorStand;
@@ -21,6 +21,7 @@ public abstract class MinionFactory {
 
 		final var location = owner.getLocation();
 		minion = (ArmorStand) location.getWorld().spawnEntity(location, EntityType.ARMOR_STAND);
+
 		return new Minion(owner);
 	}
 
@@ -32,10 +33,10 @@ public abstract class MinionFactory {
 		minion.setArms(toggle);
 	}
 
-	private static void setName(final boolean toggle) {
+	private static void setName(boolean toggle) {
 		final var name = Configuration.getName();
 		minion.customName(TextUtil.legacyDeserializer(name));
-		minion.setCustomNameVisible(true);
+		minion.setCustomNameVisible(toggle);
 	}
 
 
