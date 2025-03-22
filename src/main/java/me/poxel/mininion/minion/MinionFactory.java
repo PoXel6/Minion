@@ -12,8 +12,7 @@ import org.bukkit.entity.Player;
 public abstract class MinionFactory {
 
 
-	private static final Mininion plugin = Mininion.getInstance();
-	private static Player owner;
+	private static final Player owner = MinionCommand.getSender();
 	@Getter private static ArmorStand minion;
 
 	public static Minion create() {
@@ -25,7 +24,7 @@ public abstract class MinionFactory {
 		return new Minion(owner);
 	}
 
-	private static void setAttribute(final boolean toggle) {
+	private static void setAttributes(boolean toggle) {
 		minion.setArms(toggle);
 		minion.setSmall(toggle);
 		minion.setGravity(!toggle);
