@@ -6,7 +6,7 @@ import co.aikar.commands.annotation.Subcommand;
 import lombok.Getter;
 import me.poxel.mininion.Mininion;
 import me.poxel.mininion.config.ConfigManager;
-import me.poxel.mininion.minion.StoneMinion;
+import me.poxel.mininion.menu.MinionMenu;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.command.CommandSender;
@@ -28,7 +28,8 @@ public class MinionCommand extends BaseCommand {
 	public void onCommand(CommandSender sender) {
 		if (sender instanceof Player owner) {
 			MinionCommand.sender = owner;
-			new StoneMinion(owner);
+			final var minionMenu = new MinionMenu();
+			minionMenu.open(owner);
 			return;
 		}
 		sender.sendMessage("Only players can use this command!");
