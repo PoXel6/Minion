@@ -18,18 +18,13 @@ public class Minion implements Persistable {
 	private final ArmorStand armorStand = MinionFactory.getMinion();
 
 	protected Minion(Player owner) {
-		armorStand.getPersistentDataContainer().set(getKey(), getDataType(), getValue());
+		armorStand.getPersistentDataContainer().set(getKey(), PersistentDataType.BOOLEAN, getValue());
 	}
 
 	//<editor-fold desc="Persistable">
 	@Override
 	public NamespacedKey getKey() {
-		return new NamespacedKey(PLUGIN, MINION_METADATA_KEY);
-	}
-
-	@Override
-	public PersistentDataType getDataType() {
-		return PersistentDataType.BOOLEAN;
+		return new NamespacedKey(PLUGIN, MINION_KEY);
 	}
 
 	@Override
