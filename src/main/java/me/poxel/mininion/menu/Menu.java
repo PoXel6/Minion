@@ -25,7 +25,10 @@ public abstract class Menu {
 	}
 
 	public void open(Player player) {
-		inventory = Gui.gui().rows(getRow()).title(getTitle()).create();
+		inventory = Gui.gui()
+		               .rows(getRow())
+		               .title(getTitle())
+		               .create();
 		setMenuItems();
 		inventory.open(player);
 	}

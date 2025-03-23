@@ -21,7 +21,9 @@ public class MinionMenu extends Menu {
 
 	@Override
 	public void setMenuItems() {
-		final var stoneMinion = ItemBuilder.from(Material.STONE).name(Component.text("STONE MINION")).asGuiItem();
+		final var stoneMinion = ItemBuilder.from(Material.STONE)
+		                                   .name(Component.text("STONE MINION"))
+		                                   .asGuiItem();
 		getInventory().addItem(stoneMinion);
 	}
 
