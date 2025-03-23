@@ -23,9 +23,9 @@ public final class Mininion extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		instance = this;
+		loadConfig();
 		manager = new PaperCommandManager(this);
 		manager.registerCommand(new MinionCommand());
-		loadConfig();
 		getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
 		this.getLogger().info("Mininion has been initialized!");
 	}
