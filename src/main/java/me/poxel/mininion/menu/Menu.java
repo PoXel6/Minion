@@ -9,7 +9,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryInteractEvent;
 
 
-@SuppressWarnings({"unused", "FieldCanBeLocal"})
 public abstract class Menu {
 
 
