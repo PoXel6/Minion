@@ -1,5 +1,6 @@
 package me.poxel.mininion;
 
+import co.aikar.commands.BaseCommand;
 import co.aikar.commands.PaperCommandManager;
 import lombok.Getter;
 import me.poxel.mininion.command.MinionCommand;
@@ -11,8 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class Mininion extends JavaPlugin {
 
 
-	@Getter
-	private static Mininion instance;
+	@Getter private static Mininion instance;
 	private PaperCommandManager manager;
 
 	@Override
@@ -25,7 +25,7 @@ public final class Mininion extends JavaPlugin {
 		instance = this;
 		loadConfig();
 		manager = new PaperCommandManager(this);
-		manager.registerCommand(new MinionCommand());
+		registerCommands(new MinionCommand());
 		getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
 		this.getLogger().info("Mininion has been initialized!");
 	}
@@ -33,5 +33,10 @@ public final class Mininion extends JavaPlugin {
 	private void loadConfig() {
 		saveDefaultConfig();
 		Configuration.loadConfig(getConfig());
+	}
+
+	private void registerCommands(BaseCommand... commands) {
+		for (var command : commands)
+			manager.registerCommand(command);
 	}
 }
