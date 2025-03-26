@@ -35,6 +35,6 @@ public abstract class Menu {
 
 	public abstract void setMenuItems();
 
-	public abstract <T extends InventoryInteractEvent> void setAction(T event);
+	public abstract void setAction();
 
 }
