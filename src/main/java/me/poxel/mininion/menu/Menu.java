@@ -6,7 +6,6 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryInteractEvent;
 
 
 public abstract class Menu {
@@ -30,6 +29,7 @@ public abstract class Menu {
 		               .title(getTitle())
 		               .create();
 		setMenuItems();
+		setAction();
 		inventory.open(player);
 	}
 
