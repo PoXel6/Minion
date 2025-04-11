@@ -14,13 +14,14 @@ public class Minion implements Persistable, Ownable {
 
 
 	@Getter private static final String MINION_KEY = "isMinion";
-	@Getter private static final Minion instance = MinionFactory.create();
+	@Getter private static Minion instance;
 	private final Mininion PLUGIN = Mininion.getInstance();
 	private final ArmorStand armorStand = MinionFactory.getMinion();
 	private final Player owner;
 
 	protected Minion(Player owner) {
 		this.owner = owner;
+		instance = MinionFactory.create();
 		armorStand.getPersistentDataContainer().set(getKey(), PersistentDataType.BOOLEAN, getValue());
 	}
 

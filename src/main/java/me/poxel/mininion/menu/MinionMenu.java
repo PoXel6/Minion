@@ -7,8 +7,6 @@ import me.poxel.mininion.util.TextUtil;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryInteractEvent;
 
 
 public class MinionMenu extends Menu {
@@ -28,11 +26,12 @@ public class MinionMenu extends Menu {
 	}
 
 	@Override
-	public <T extends InventoryInteractEvent> void setAction(final T event) {
-		if (event instanceof InventoryClickEvent clickEvent) {
-			final var player = (Player) clickEvent.getWhoClicked();
-			player.sendMessage("you clicked on this: " + clickEvent.getCurrentItem().displayName());
+	public void setAction() {
+		getInventory().setDefaultClickAction(event -> {
+			final var player = ((Player) event.getWhoClicked());
+			final var item = event.getCurrentItem();
+			player.sendMessage("you clicked on this: " + item);
 			new StoneMinion(player);
-		}
+		});
 	}
 }
